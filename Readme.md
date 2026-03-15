@@ -1,4 +1,4 @@
-# Revenue Optimization Analysis for Multi-City Hospitality Chain
+# Hospitality Industry: Revenue Optimization Analysis for a Multi-City Hotel Chain
 
 ## The Challenge
 Atliq Hotels operates multiple hotels across several cities, providing room and hospitality services to customers. The key challenge was to identify hotels with low occupancy rates across different cities and understand the factors affecting their performance. Previously, the company relied on manual analysis and traditional reporting methods, which were not effective in identifying patterns across large booking datasets. Therefore, the objective was to use data analytics to analyze booking patterns, improve booking efficiency, and optimize overall revenue.
