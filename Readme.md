@@ -89,7 +89,7 @@ Applying data-driven pricing strategies and demand-based promotions can potentia
 ### Reduction in OTA Booking Cancellations
 Improving booking policies such as partial advance payments, reminder notifications, and flexible rescheduling options can **reduce OTA booking cancellations by approximately 25%**.
 
-### Better Pricing Strategy
+### Dynamic Pricing Strategy
 Using key metrics such as **ADR and RevPAR**, the business can adjust room prices based on demand patterns (weekday vs weekend) to maximize revenue.
 
 ### Improved Booking Efficiency
