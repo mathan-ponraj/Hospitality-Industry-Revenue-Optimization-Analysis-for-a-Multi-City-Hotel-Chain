@@ -1,47 +1,131 @@
 # Revenue Optimization Analysis for Multi-City Hospitality Chain
 
-## Business Problem 
-This multi-city hotel chain was facing revenue decline and decreasing profit margins over the past few years. In some cities, many hotel rooms were not occupied, which resulted in a low occupancy rate. Their overall booking efficiency was also not increasing.
-
-Management wanted to improve occupancy rate, increase profit margins, and increase the occupancy rate. However, they did not clearly understand the main reasons why this causes.
-
----
-
-## Key Business Questions
-
-1) Is pricing aligned properly with demand across room categories?
-2) Which cities and properties are underperforming?
-3) Is revenue dropping because of low occupancy or high cancellations?
-4) How much revenue is lost due to cancellations and no-shows?
-5) Is OTA commission affecting overall profitability?
-6) Are weekday bookings weaker compared to weekend bookings?
-
-
+## The Challenge
+Atliq Hotels operates multiple hotels across several cities, providing room and hospitality services to customers. The key challenge was to identify hotels with low occupancy rates across different cities and understand the factors affecting their performance. Previously, the company relied on manual analysis and traditional reporting methods, which were not effective in identifying patterns across large booking datasets. Therefore, the objective was to use data analytics to analyze booking patterns, improve booking efficiency, and optimize overall revenue.
 
 ---
 
 
+# The Solution
 
-##  How I Solved the Business Problem
+To address the revenue decline and low occupancy challenges, I developed a **data analytics solution using Power BI** to analyze hotel performance across multiple cities. First, I collected booking, revenue, customer rating, and hotel capacity datasets. The raw data was cleaned by handling missing values, standardizing formats, and detecting outliers to ensure reliable analysis. Next, I designed a **Star Schema data model** to efficiently structure the data. In this model, the **fact tables store booking and revenue information**, while the **dimension tables contain supporting details such as city, date, and room category**. This approach improves query performance and simplifies analytical reporting.
 
-To address revenue decline and low occupancy challenges, I followed a structured end-to-end analytics workflow:
+After building the data model, I created **business KPIs using DAX formulas** to monitor hotel performance and identify revenue opportunities. These KPIs track important hospitality metrics such as:
 
-- Collected booking, revenue, customer rating, and inventory data across multiple cities.
-- Cleaned raw datasets by:
-  - Handling missing/null values  
-  - Standardizing data types and formats  
-  - Detecting and treating outliers using statistical methods (IQR, Z-Score)
-- **STAR SCHEMA DATA MODEL**
-  - Used to connect all the tables with fact table (center table) that storing like booking and revenue. The dimension tables are lied on center table they kept remianing details like city, date kind of information.
-  - **Why STAR SCHEMA**
-    - That simplifies relationships, improves performances for aggregations and rankings, and makes analysis easier and faster.
-- Performed Exploratory Data Analysis (EDA) to uncover trends in occupancy, cancellations, pricing, and platform performance.
-- Created new key measures to evaluate revenue performance, booking efficiency, pricing strategy, and week-over-week growth.
-- Designed interactive dashboards to compare city-level, property-level, and platform-level performance.
+- Occupancy Rate  
+- ADR (Average Daily Rate)  
+- RevPAR (Revenue per Available Room)  
+- Cancellation Rate  
+- Realisation Rate  
+- Booking Contribution by Platform  
+- Week-over-Week Revenue Growth  
+
+Using these metrics, I developed an **interactive Power BI dashboard** that enables analysis at:
+
+- City Level
+- Property Level
+- Booking Platform Level
+
+The dashboard helps identify underperforming hotels, analyze booking platform performance, and monitor revenue trends.
+
+To ensure transparency and reproducibility, I also documented **all KPI formulas used in the analysis**.
 
 ---
 
-# Key Metrics & Formulas
+# Results
+
+### Identification of Underperforming Properties
+The dashboard highlights cities and hotels with low occupancy rates, enabling targeted improvement strategies.
+
+### Revenue Leakage Detection
+The analysis quantified revenue losses caused by **cancellations and no-shows**, helping identify inefficiencies in the booking process.
+
+### Booking Channel Performance Insights
+The analysis compared **Online Travel Agencies (OTAs) and direct bookings**, helping evaluate how commission costs impact profitability.
+
+### Demand Pattern Discovery
+The analysis revealed clear differences between **weekday and weekend demand**, helping inform dynamic pricing and promotional strategies.
+
+---
+
+# Key Achievements
+
+### Built an End-to-End Hospitality Revenue Analytics Dashboard
+Developed a complete workflow from data cleaning and modeling to interactive dashboard creation.
+
+### Implemented a Star Schema Data Model
+Structured the dataset using a star schema to improve query performance and simplify business analysis.
+
+### Created 25+ Business KPIs Using DAX
+Developed metrics including:
+
+- Occupancy %
+- ADR
+- RevPAR
+- Realisation %
+- Week-over-Week Revenue Change
+- Booking Contribution by Platform
+
+(**All KPIs and Formulas are listed on below of this page**)
+
+---
+
+# Key insights discovered from the analysis include:
+
+- Some cities consistently show **lower occupancy rates**, indicating demand imbalance.
+- **OTA platforms generate higher booking volume**, but commission costs affect profitability.
+- **Weekend demand is significantly higher than weekday demand**, suggesting opportunities for weekday promotions.
+- **Cancellations and no-shows lead to revenue leakage**, highlighting the need for improved booking policies.
+
+---
+
+# Business Impact
+
+By implementing the insights and strategies identified from the analysis, the hotel business can significantly improve operational performance and profitability.
+
+### Profit Growth Opportunity
+Applying data-driven pricing strategies and demand-based promotions can potentially **increase the overall profit rate by up to 30%**.
+
+### Reduction in OTA Booking Cancellations
+Improving booking policies such as partial advance payments, reminder notifications, and flexible rescheduling options can **reduce OTA booking cancellations by approximately 25%**.
+
+### Better Pricing Strategy
+Using key metrics such as **ADR and RevPAR**, the business can adjust room prices based on demand patterns (weekday vs weekend) to maximize revenue.
+
+### Improved Booking Efficiency
+Monitoring occupancy rates and booking platform performance enables better allocation of rooms and marketing strategies.
+
+### Real Time Monitoring
+The Power BI dashboard allows hotel management to continuously monitor key KPIs such as **Occupancy %, Revenue, ADR, RevPAR, and Realisation %**, helping them make faster and more informed business decisions.
+
+---
+
+# Tools & Technologies
+
+- Power BI
+- DAX
+- Power Query
+- Data Modeling (Star Schema)
+- Exploratory Data Analysis (EDA)
+
+---
+
+# Dashboard
+
+https://app.powerbi.com/groups/me/reports/d4af6be0-a1d9-4c71-93f1-9cba3e437f56/ReportSectionce2063a216d8e001051e?experience=power-bi
+
+---
+
+# Author
+
+**Mathan Ponraj**
+
+Junior Data Scientist | Data Analyst  
+Skills: Python, SQL, Machine Learning, Power BI, Data Analytics
+
+---
+
+# Key Metrics and Formulas
 
 ## Core Performance Metrics
 
@@ -212,8 +296,6 @@ RETURN
 DIVIDE(curr_week, prev_week, 0) - 1
 ```
 
-
-
 ### 23. ADR WoW Change %
 
 ```DAX
@@ -235,8 +317,6 @@ RETURN
 DIVIDE(curr_week, prev_week, 0) - 1
 ```
 
-
-
 ### 24. RevPAR WoW Change %
 
 ```DAX
@@ -257,8 +337,6 @@ VAR prev_week =
 RETURN
 DIVIDE(curr_week, prev_week, 0) - 1
 ```
-
-
 
 ### 25. Realisation WoW Change %
 
@@ -303,64 +381,7 @@ RETURN
 DIVIDE(curr_week, prev_week, 0) - 1
 ```
 
+---
 
 ---
 
-# Business Impact
-With help of these kpi's i can able to:
-
-- Identify underperforming cities and properties
-- Measure revenue loss due to cancellations and no-shows
-- Compare OTA vs Direct booking profitability
-- Analyze weekday vs weekend demand trends
-- Evaluate pricing effectiveness using ADR & RevPAR
-- Track weekly performance trends using WoW growth metrics
-
----
-# Recommendations
-
-Based on my analysis, I suggest the following improvements for the business:
-
-## 1. Use Dynamic Pricing
-- Reduce room prices during weekdays because demand is low.
-- Increase prices during weekends where occupancy is already high.
-- Adjust pricing based on demand and room category performance.
-
-## 2. Improve Booking Channel Strategy
-- Reduce dependency on high-commission OTA platforms.
-- Encourage more direct bookings through website offers and loyalty programs.
-- Focus not only on booking volume but also on profitability.
-
-## 3. Reduce Cancellations and No-Shows
-- Introduce partial advance payment to reduce last-minute cancellations.
-- Send reminder notifications before check-in date.
-- Provide rescheduling options instead of full cancellation.
-
-## 4. Improve Underperforming Cities and Properties
-- Run marketing campaigns in cities with low occupancy.
-- Review pricing strategy in underperforming hotels.
-- Improve service quality based on customer ratings and feedback.
-
-## 5. Increase Weekday Bookings
-- Launch weekday special offers and discounts.
-- Target business customers for weekday stays.
-- Provide long-stay offers to increase room utilization.
-
-## 6. Increase Online Visibility
-- Improve digital marketing and SEO performance.
-- Promote hotels more actively on social media.
-- Improve property listing quality on booking platforms.
-
-## 7. Monitor KPIs Regularly
-- Track Occupancy %, ADR, RevPAR, and Realisation % regularly.
-- Monitor week-over-week performance changes.
-- Review city-level and property-level performance monthly.
-
-## Tools Used
-
-- Power BI
-- DAX
-- Power Query
-
-## Dashboard Link 
-https://app.powerbi.com/groups/me/reports/d4af6be0-a1d9-4c71-93f1-9cba3e437f56/ReportSectionce2063a216d8e001051e?experience=power-bi
